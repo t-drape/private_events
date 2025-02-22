@@ -13,4 +13,11 @@
 
 <h3>
   Wanna Come?
-  <%= link_to "Join Event", new_events_to_attend_path %>
+  <%= link_to "Join Event", new_attendee_attended_event_path(event_id: @event.id) %>
+
+<h1>Attendees:</h1>
+<ul>
+  <% @attendees.each do |attendee| %>
+    <h3><%= attendee.username %></h3>
+  <% end %>
+</ul>

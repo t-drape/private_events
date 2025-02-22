@@ -6,7 +6,11 @@
   <ul>
   <% @events.each do |event| %>
     <li style="list-style:none">
-      <%= link_to event.name,  %>
+      <%= event.id %>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :h2, name %>
+        <%= content_tag :h2, msg, class:name %>
+      <% end %>
     </li>
   <% end %>
   </ul>

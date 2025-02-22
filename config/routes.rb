@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :events
+  resources :attendee_attended_events
   resources :events_to_attend
 
   root to: "events#index"

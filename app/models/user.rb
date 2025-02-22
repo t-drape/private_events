@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :created_events, foreign_key: :event_creator_id, class_name: "Event"
 
-  has_many :events_to_attend, foreign_key: :event_attendee_id
-  has_many :attended_events, through: :events_to_attend
+  has_many :attendee_attended_events, foreign_key: :attendee_id
+  has_many :attended_events, through: :attendee_attended_events
 end
