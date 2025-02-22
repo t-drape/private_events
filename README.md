@@ -26,3 +26,5 @@ Things you may want to cover:
 Helpful resources:
 
 url: https://stackoverflow.com/questions/9346261/using-has-many-through-and-build/9346904
+
+url: https://mokacoding.com/blog/rails-add-has-many-association-to-existing-model/

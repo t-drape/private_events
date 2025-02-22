@@ -1,16 +1,20 @@
 <h1>Events</h1>
 
-<ul>
-<% @events.each do |event| %>
-  <li style="list-style:none">
-    <h2><%= event.name %></h2>
-    <h3><%= event.place %></h2>
-    <h3><%= event.event_date %></h2>
-  </li>
+<% if @events.empty? %>
+  <h2>No Current Events</h2>
+<% else %>
+  <ul>
+  <% @events.each do |event| %>
+    <li style="list-style:none">
+      <%= link_to event.name, event_path(event.id) %>
+    </li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
 
 <% if user_signed_in? %>
+  <%= link_to "Create Event", new_event_path %>
+  <%= link_to "Join Event", new_events_to_attend_path %>
   <h3><%= button_to "Sign Out", destroy_user_session_path, method: :delete %></h3>
 <% else %>
   <h3><%= button_to "Sign In", new_user_session_path %></h3>

@@ -1,0 +1,13 @@
+<h1>What Event Would You Like to Join?</h1>
+
+<% if @events.empty? %>
+  <h2>No Current Events</h2>
+<% else %>
+  <ul>
+  <% @events.each do |event| %>
+    <li style="list-style:none">
+      <%= link_to event.name,  %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
