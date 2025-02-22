@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Helpful resources:
+
+url: https://stackoverflow.com/questions/9346261/using-has-many-through-and-build/9346904

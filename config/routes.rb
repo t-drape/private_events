@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :events
 
@@ -14,5 +15,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 end

@@ -1,0 +1,23 @@
+<%= form_with model: @event do |form| %>
+  <%= form.label(:name, "Name") %>
+  <%= form.text_field(:name, {placeholder: "Name of Your Event"}) %>
+  <%= form.label(:place, "Address") %>
+  <%= form.text_field(:place, {placeholder: "Address of Your Event"}) %>
+  <%= form.label(:event_date, "Date") %>
+  <%= form.date_field(:event_date, {placeholder: "Date of Your Event"}) %>
+  <%= form.submit "Create Event" %>
+<% end %>
+
+<% if @event.errors.any? %>
+  <div id="errors">
+    <h2><%= pluralize(@event.errors.count, "error") %> needs to be satisfied:</h2>
+
+    <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= link_to "Home", :root %>
