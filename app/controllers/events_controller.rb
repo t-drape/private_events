@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @attendees = User.where(id: (AttendeeAttendedEvent.select(:attendee_id).where(attended_event_id: @event.id)))
+    @attendees = User.where(id: (AttendeeAttendedEvent.select(:attendee_id).where(attended_event_id: @event.id))).and(User.where.not(id: @event.event_creator_id))
   end
 
   private
