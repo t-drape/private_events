@@ -3,17 +3,33 @@
 <% if @events.empty? %>
   <h2>No Current Events</h2>
 <% else %>
-  <ul>
-  <% @events.each do |event| %>
-    <li style="list-style:none">
-      <%= link_to event.name, event_path(event.id) %>
-    </li>
-  <% end %>
-  </ul>
+  <div>
+    <h2>Past Events</h2>
+
+    <ul>
+    <% Event.past.each do |event| %>
+      <li style="list-style:none">
+        <%= link_to event.name, event_path(event.id) %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+  <div>
+    <h2>Future Events</h2>
+
+    <ul>
+    <% Event.future.each do |event| %>
+      <li style="list-style:none">
+        <%= link_to event.name, event_path(event.id) %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <% if user_signed_in? %>
   <%= link_to "Create Event", new_event_path %>
+  <%= link_to "My Events", user_path(current_user.id) %>
   <h3><%= button_to "Sign Out", destroy_user_session_path, method: :delete %></h3>
 <% else %>
   <h3><%= button_to "Sign In", new_user_session_path %></h3>
